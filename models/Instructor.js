@@ -1,25 +1,23 @@
-// model for lecturers 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Define the Admin schema
-const adminSchema = new Schema({
+const instructorSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   email:{
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
-  username: {
+  password:{
     type: String,
-    required: true,
-    unique: true,
+    required: true
   },
-  password: {
-    type: String,
-    required: true,
-  },
+  lectures: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Lecture'
+  }],
 });
 
-// Create the Admin model
-module.exports = mongoose.model('Admin', adminSchema);
-
+module.exports = mongoose.model('Instructor', instructorSchema);
