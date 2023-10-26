@@ -26,8 +26,8 @@ try{
 
     const token =  jwt.sign(data, 'shhh');
 
-    const createdUser = newUser;
-    createdUser.password = undefined;
+    const creatAdmin = newAdmin;
+    creatAdmin.password = undefined;
 
     res.status(200).json({
         success: true,
